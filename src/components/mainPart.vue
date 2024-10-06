@@ -9,6 +9,7 @@
         <div>
             <button id="addCabinetButton" @click="addCabinet">Добавить кабинет</button>
             <button id="toMainPage" @click="showMainPage()">На главную</button>
+            <h1>{{loginUsername}}</h1>
         </div>
     </div>
     <div class="mainGuidePage">
@@ -17,7 +18,7 @@
             </div>
                         <div class="main_info">
                             <div class="instructions">
-                                <h2>Как добавить кабинет через сайт: </h2>
+                                <h2 class="mm">Как добавить кабинет через сайт: </h2>
                                 <div class="instruction_items">
                                     <ol>
                                         <li>На боковой панели нажать на кнопку "Добавить кабинет".</li>
@@ -27,7 +28,7 @@
                                 </div>
                             </div>
                             <div class="instructions">
-                                <h2>Как добавить оборудование через сайт: </h2>
+                                <h2 class="mm">Как добавить оборудование через сайт: </h2>
                                 <div class="instruction_items">
                                     <ol>
                                         <li>На боковой панели выбрать кабинет, в который нужно добавить обоурдование.</li>
@@ -36,7 +37,7 @@
                                 </div>
                             </div>
                             <div class="instructions">
-                                <h2>Как редактировать характеристики оборудования через сайт: </h2>
+                                <h2 class="mm">Как редактировать характеристики оборудования через сайт: </h2>
                                 <div class="instruction_items">
                                     <ol>
                                         <li>В боковой панели выбрать нужный кабинет.</li>
@@ -45,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="instructions">
-                                <h2>Как добавить оборудование через add_item.py (Нужен установленный питон.): </h2>
+                                <h2 class="mm">Как добавить оборудование через add_item.py (Нужен установленный питон.): </h2>
                                 <div class="instruction_items">
                                     <ol>
                                         <li>Открыть файл add_item.py.</li>
@@ -65,6 +66,10 @@ export default {
             cabinetNamesList: []
         };
     },
+    props: {
+        loginUsername: String
+    },
+
     methods: {
         async getCabinets() {
             this.cabinetNamesList = await fetchCabinets();
@@ -105,7 +110,7 @@ export default {
         showComputerForm(cabinetName) {
             const contentDiv = document.querySelector('.mainGuidePage');
             contentDiv.innerHTML = `
-                <h2>Добавить оборудование в кабинет ${cabinetName}.</h2>
+                <h2 class="mm">Добавить оборудование в кабинет ${cabinetName}.</h2>
                 <form id="add-computer-form">
                     <div class='oborydovanie-form'>
                         <label for="name" id='obor-name'>Название оборудования:</label><br>
@@ -157,7 +162,7 @@ export default {
             </div>
                         <div class="main_info">
                             <div class="instructions">
-                                <h2>Как добавить кабинет через сайт: </h2>
+                                <h2 class="mm">Как добавить кабинет через сайт: </h2>
                                 <div class="instruction_items">
                                     <ol>
                                         <li>На боковой панели нажать на кнопку "Добавить кабинет".</li>
@@ -167,7 +172,7 @@ export default {
                                 </div>
                             </div>
                             <div class="instructions">
-                                <h2>Как добавить оборудование через сайт: </h2>
+                                <h2 class="mm">Как добавить оборудование через сайт: </h2>
                                 <div class="instruction_items">
                                     <ol>
                                         <li>На боковой панели выбрать кабинет, в который нужно добавить обоурдование.</li>
@@ -176,7 +181,7 @@ export default {
                                 </div>
                             </div>
                             <div class="instructions">
-                                <h2>Как редактировать характеристики оборудования через сайт: </h2>
+                                <h2 class="mm">Как редактировать характеристики оборудования через сайт: </h2>
                                 <div class="instruction_items">
                                     <ol>
                                         <li>В боковой панели выбрать нужный кабинет.</li>
@@ -185,7 +190,7 @@ export default {
                                 </div>
                             </div>
                             <div class="instructions">
-                                <h2>Как добавить оборудование через add_item.py (Нужен установленный питон.): </h2>
+                                <h2 class="mm">Как добавить оборудование через add_item.py (Нужен установленный питон.): </h2>
                                 <div class="instruction_items">
                                     <ol>
                                         <li>Открыть файл add_item.py.</li>
@@ -251,7 +256,7 @@ async function fetchCabinets() {
 // Показ формы для ввода характеристик с уже существующими значениями
 async function showCharacteristicsForm(cabinetName, computerName) {
     const contentDiv = document.querySelector('.mainGuidePage');
-    contentDiv.innerHTML = `<h2>Характеристики для ${computerName}</h2>
+    contentDiv.innerHTML = `<h2 class="mm">Характеристики для ${computerName}</h2>
         <form id="characteristics-form">
             <div id="characteristics-container"></div>
             <button type="submit" class="save_characterist">Сохранить характеристики</button>
@@ -382,7 +387,7 @@ async function deleteComputer(cabinetName, computerName) {
     margin-bottom: 1%;
 }
 
-h2{
+.mm{
     font-family: Arial, sans-serif;
     background-color: #ffffff;
     color: #434343;

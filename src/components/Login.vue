@@ -11,18 +11,25 @@
 </template>
   
 <script>
-  
+import mainPart from './mainPart.vue'
 export default {
   data() {
     return {
       loginData: { username: '', password: '' },
-      errorMessage: ''
+      errorMessage: '',
+      username: ''
     };
   },
   methods: {
     login() {
       this.$emit('login', this.loginData);
-    }
+    },
+    handleLogin(username) {
+      this.username = username;
+  },
+  components: {
+    mainPart
+  }
   }
 };
 </script>
