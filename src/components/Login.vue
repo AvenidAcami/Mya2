@@ -1,4 +1,5 @@
 <template>
+  <mainPart :loginUsername="username" />
   <div id="mainLoginBlock">
     <h2>Вход</h2>
     <div id="loginPlaceholders">
@@ -17,7 +18,6 @@ export default {
     return {
       loginData: { username: '', password: '' },
       errorMessage: '',
-      username: ''
     };
   },
   methods: {

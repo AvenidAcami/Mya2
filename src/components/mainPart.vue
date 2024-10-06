@@ -9,7 +9,6 @@
         <div>
             <button id="addCabinetButton" @click="addCabinet">Добавить кабинет</button>
             <button id="toMainPage" @click="showMainPage()">На главную</button>
-            <h1>{{loginUsername}}</h1>
         </div>
     </div>
     <div class="mainGuidePage">
@@ -66,10 +65,6 @@ export default {
             cabinetNamesList: []
         };
     },
-    props: {
-        loginUsername: String
-    },
-
     methods: {
         async getCabinets() {
             this.cabinetNamesList = await fetchCabinets();
@@ -207,6 +202,7 @@ export default {
     },
     mounted() {
         this.getCabinets();
+        console.log(this.loginUsername);
     }
 };
 
