@@ -39,7 +39,8 @@ export default {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: url('../assets/wallpaper_1551_1920x1080.jpg') no-repeat center center fixed;
+/*   background: url('../assets/wallpaper_1551_1920x1080.jpg') no-repeat center center fixed; */
+  background-color: white;
   background-size: cover;
 }
 
